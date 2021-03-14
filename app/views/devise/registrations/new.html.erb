@@ -1,32 +1,30 @@
-<h1 class="font-medium text-xl mt-3 text-center">Sign Up</h1>
+<h2 class="font-medium text-xl mt-3 text-center">Sign Up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'mt-6') do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="my-5 text-sm">
-    <%= f.label 'Full Name', class: 'block text-black' %>
-    <%= f.text_field :name, autofocus: true, class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
+    <%= f.label 'Full Name' %>
+    <%= f.text_field_with_errors :name, autofocus: true %>
   </div>
 
   <div class="my-5 text-sm">
-    <%= f.label :email, class: 'block text-black' %>
-    <%= f.email_field :email, autocomplete: "email", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
+    <%= f.label :email %>
+    <%= f.email_field_with_errors :email, autocomplete: 'email' %>
   </div>
 
   <div class="my-5 text-sm">
-    <%= f.label :password, class: 'block text-black' %>
-    <%= f.password_field :password, autocomplete: "new-password", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
+    <%= f.label :password %>
+    <%= f.password_field_with_errors :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <span class="text-xs italic">(<%= @minimum_password_length %> characters minimum)</span>
     <% end %>
   </div>
 
   <div class="my-5 text-sm">
-    <%= f.label :password_confirmation, class: 'block text-black' %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field_with_errors :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="my-5 text-sm">
-    <%= f.submit "Sign up", class: 'block text-center text-white bg-blue-500 p-3 duration-300 rounded-sm hover:bg-blue-700 w-full cursor-pointer' %>
+    <%= f.submit "Sign up", class: 'button button--primary button--block' %>
   </div>
 <% end %>
 
