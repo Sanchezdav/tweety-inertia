@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetyInertia</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <h1 class="font-bold text-2xl text-center my-5">
+      <%= link_to 'Tweety', unauthenticated_root_path %>
+    </h1>
+    <div class="bg-white lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
+      <div class="py-8 px-8 rounded-xl">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

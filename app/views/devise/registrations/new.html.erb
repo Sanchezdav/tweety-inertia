@@ -1,29 +1,35 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h1 class="font-medium text-xl mt-3 text-center">Sign Up</h1>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'mt-6') do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="my-5 text-sm">
+    <%= f.label 'Full Name', class: 'block text-black' %>
+    <%= f.text_field :name, autofocus: true, class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="my-5 text-sm">
+    <%= f.label :email, class: 'block text-black' %>
+    <%= f.email_field :email, autocomplete: "email", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
+  </div>
+
+  <div class="my-5 text-sm">
+    <%= f.label :password, class: 'block text-black' %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+      <span class="text-xs italic">(<%= @minimum_password_length %> characters minimum)</span>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="my-5 text-sm">
+    <%= f.label :password_confirmation, class: 'block text-black' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="my-5 text-sm">
+    <%= f.submit "Sign up", class: 'block text-center text-white bg-blue-500 p-3 duration-300 rounded-sm hover:bg-blue-700 w-full cursor-pointer' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="flex justify-center">
+  <%= render "devise/shared/links" %>
+</div>
