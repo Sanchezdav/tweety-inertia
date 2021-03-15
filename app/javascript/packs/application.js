@@ -10,4 +10,5 @@ import "channels"
 Rails.start()
 ActiveStorage.start()
 
+import "@fortawesome/fontawesome-free/css/all"
 import "stylesheets/application"
