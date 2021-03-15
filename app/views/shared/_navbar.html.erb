@@ -5,7 +5,8 @@
         <a href="#" class="logo">Tweety</a>
       </div>
       <div class="flex items-center flex-grow justify-center ml-5 pb-4 sm:pb-0 sm:flex sm:justify-end sm:flex-row">
-        <span><%= current_user.name.familiar %></span>
+        <%= user_gravatar(current_user, '30') %>
+        <%= link_to current_user.name.familiar, edit_user_registration_path, class: 'link ml-2' %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline' %>
       </div>
     </div>

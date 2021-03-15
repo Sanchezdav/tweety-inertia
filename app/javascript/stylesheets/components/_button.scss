@@ -9,6 +9,14 @@
     }
   }
 
+  &--danger {
+    @apply bg-red-500;
+
+    &:hover {
+      @apply bg-red-700;
+    }
+  }
+
   &--block {
     @apply block w-full;
   }
