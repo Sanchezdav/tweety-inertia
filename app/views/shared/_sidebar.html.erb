@@ -1,0 +1,25 @@
+<div class="flex flex-col w-24 md:w-64 text-gray-700 bg-white flex-shrink-0 pt-8 pb-3 shadow">
+  <div class="flex flex-row items-center justify-center px-4 pb-12">
+    <a href="/" class="logo hidden md:block">Tweety</a>
+    <a href="/" class="block md:hidden text-lg"><i class="fas fa-kiwi-bird"></i></a>
+  </div>
+  <nav class="flex-grow md:block px-4 md:pb-0 md:overflow-y-auto">
+    <div class="flex flex-row items-center justify-center mb-5">
+      <%= user_gravatar(current_user, '30') %>
+      <%= link_to current_user.name.familiar, edit_user_registration_path, class: 'link ml-2 hidden md:flex' %>
+    </div>
+    <hr>
+    <div class="flex flex-col justify-between">
+      <div class="mb-10">
+        <%= link_to authenticated_root_path, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline' do %>
+          <i class="fas fa-home"></i>
+          <span class="hidden md:inline-block ml-2">Home</span>
+        <% end %>
+      </div>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'text-center block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline' do %>
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="hidden md:inline-block ml-2">Logout</span>
+      <% end %>
+    </div>
+  </nav>
+</div>

@@ -12,9 +12,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <div class="container px-10 md:px-12 py-8">
-      <%= yield %>
+    <div class="flex flex-row min-h-screen">
+      <%= render 'shared/sidebar' %>
+      <div class="container px-10 md:px-12 py-8">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
