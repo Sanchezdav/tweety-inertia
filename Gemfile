@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.7.3'
 gem 'tailwindcss-rails', '~> 0.3.3'
 gem 'name_of_person'
+gem 'inertia_rails', '~> 1.9'
