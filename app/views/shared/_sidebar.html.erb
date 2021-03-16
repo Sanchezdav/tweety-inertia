@@ -1,25 +1,26 @@
-<div class="flex flex-col w-24 md:w-64 text-gray-700 bg-white flex-shrink-0 pt-8 pb-3 shadow">
-  <div class="flex flex-row items-center justify-center px-4 pb-12">
+<div class="min-h-full h-auto fixed md:w-64 w-24 bg-white border-solid border-gray-400 border-r">
+  <div class="flex flex-row items-center justify-center px-4 pb-12 pt-5">
     <a href="/" class="logo hidden md:block">Tweety</a>
     <a href="/" class="block md:hidden text-lg"><i class="fas fa-kiwi-bird"></i></a>
   </div>
-  <nav class="flex-grow md:block px-4 md:pb-0 md:overflow-y-auto">
+  <nav class="min-h-screen md:block px-4 md:pb-0 md:overflow-y-auto">
     <div class="flex flex-row items-center justify-center mb-5">
       <%= user_gravatar(current_user, '30') %>
       <%= link_to current_user.name.familiar, edit_user_registration_path, class: 'link ml-2 hidden md:flex' %>
     </div>
-    <hr>
     <div class="flex flex-col justify-between">
-      <div class="mb-10">
-        <%= link_to authenticated_root_path, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline' do %>
+      <div>
+        <%= link_to authenticated_root_path, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-full hover:text-blue-500 focus:text-blue-500 hover:bg-blue-100 focus:bg-blue-100 focus:outline-none focus:shadow-outline' do %>
           <i class="fas fa-home"></i>
           <span class="hidden md:inline-block ml-2">Home</span>
         <% end %>
       </div>
-      <%= link_to destroy_user_session_path, method: :delete, class: 'text-center block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline' do %>
-        <i class="fas fa-sign-out-alt"></i>
-        <span class="hidden md:inline-block ml-2">Logout</span>
-      <% end %>
+      <div>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-full hover:text-gray-500 focus:text-gray-500 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline' do %>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="hidden md:inline-block ml-2">Logout</span>
+        <% end %>
+      </div>
     </div>
   </nav>
 </div>
