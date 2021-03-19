@@ -1,26 +1,44 @@
-<div class="min-h-full h-auto fixed md:w-64 w-24 bg-white border-solid border-gray-400 border-r">
-  <div class="flex flex-row items-center justify-center px-4 pb-12 pt-5">
-    <a href="/" class="logo hidden md:block">Tweety</a>
-    <a href="/" class="block md:hidden text-lg"><i class="fas fa-kiwi-bird"></i></a>
+<div class="sidebar">
+  <div class="sidebar__logo">
+    <a href="/" class="logo hidden md:block ml-3">Tweety</a>
+    <a href="/" class="block md:hidden text-2xl"><i class="fas fa-kiwi-bird"></i></a>
   </div>
-  <nav class="min-h-screen md:block px-4 md:pb-0 md:overflow-y-auto">
-    <div class="flex flex-row items-center justify-center mb-5">
-      <%= user_gravatar(current_user, '30') %>
-      <%= link_to current_user.name.familiar, edit_user_registration_path, class: 'link ml-2 hidden md:flex' %>
+  <nav class="sidebar__nav">
+    <div class="flex flex-col items-start">
+      <%= link_to authenticated_root_path, class: "sidebar__nav__item #{current_path?(authenticated_root_path)}" do %>
+        <i class="fas fa-home"></i>
+        <span class="hidden md:inline-block ml-2">Home</span>
+      <% end %>
+      <a href="/" class="sidebar__nav__item">
+        <i class="fas fa-hashtag"></i>
+        <span class="hidden md:inline-block ml-2">Explore</span>
+      </a>
+      <a href="/" class="sidebar__nav__item">
+        <i class="fas fa-bell"></i>
+        <span class="hidden md:inline-block ml-2">Notifications</span>
+      </a>
+      <a href="/" class="sidebar__nav__item">
+        <i class="fas fa-envelope"></i>
+        <span class="hidden md:inline-block ml-2">Messages</span>
+      </a>
+      <a href="/" class="sidebar__nav__item">
+        <i class="fas fa-bookmark"></i>
+        <span class="hidden md:inline-block ml-2">Bookmarks</span>
+      </a>
+      <%= link_to edit_user_registration_path, class: 'sidebar__nav__item' do %>
+        <i class="fas fa-user"></i>
+        <span class="hidden md:inline-block ml-2">Profile</span>
+      <% end %>
     </div>
-    <div class="flex flex-col justify-between">
-      <div>
-        <%= link_to authenticated_root_path, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-full hover:text-blue-500 focus:text-blue-500 hover:bg-blue-100 focus:bg-blue-100 focus:outline-none focus:shadow-outline' do %>
-          <i class="fas fa-home"></i>
-          <span class="hidden md:inline-block ml-2">Home</span>
-        <% end %>
+    <div class="absolute left-0 bottom-0 right-0 p-5">
+      <div class="flex flex-row items-center justify-center mb-5">
+        <%= user_gravatar(current_user, '30') %>
+        <span class="ml-2 hidden md:flex"><%= current_user.name.familiar %></span>
       </div>
-      <div>
-        <%= link_to destroy_user_session_path, method: :delete, class: 'text-center block px-4 py-2 mt-2 text-lg font-semibold text-gray-900 hover:bg-gray-200 duration-300 rounded-full hover:text-gray-500 focus:text-gray-500 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline' do %>
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="hidden md:inline-block ml-2">Logout</span>
-        <% end %>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'sidebar__nav__item' do %>
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="hidden md:inline-block ml-2">Logout</span>
+      <% end %>
       </div>
-    </div>
   </nav>
 </div>

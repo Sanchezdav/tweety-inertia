@@ -1,0 +1,27 @@
+.sidebar {
+  @apply h-full fixed md:w-64 w-24 bg-white border-solid border-gray-400 border-r;
+
+  &__logo {
+    @apply flex flex-row items-center px-4 pb-12 pt-5;
+  }
+
+  &__nav {
+    @apply h-full md:block px-4 md:pb-0 md:overflow-y-auto;
+  }
+
+  &__nav__item {
+    @apply text-center block px-5 py-2 mb-3 text-xl font-semibold text-gray-900 duration-300 rounded-full;
+
+    &.active {
+      @apply text-blue-600;
+    }
+
+    &:hover {
+      @apply bg-blue-100 text-blue-600;
+    }
+
+    &:focus {
+      @apply text-blue-500 bg-blue-100 outline-none;
+    }
+  }
+}
